@@ -114,7 +114,7 @@ function handleError(data) {
 	if (data.status == 403) {
 		window.location.href = '/errorpage?errorcode=' + data.status;
 	} else {
-		window.location.href = '/errorpage?errorcode=' + data.status;
+		window.location.href = '/errorpage?errorcode=' + data;
 	}
 }
 
@@ -210,8 +210,14 @@ function readJPEGFile(evt) {
 				document.getElementById("error").innerHTML = 'Image file size should be less than 1000 x 1000';
 				return;
 			} else {
-				$(".imageData").val(reader.result);
-				pushMessage();
+			    if (bin.length > 1000000) {
+    				document.getElementById("error").innerHTML = 'Image file size limit 10mb';
+    				return;
+			        
+			    } else {
+    				$(".imageData").val(reader.result);
+    				pushMessage();
+			    }
 			}
 		}
 	}
