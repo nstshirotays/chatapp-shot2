@@ -210,7 +210,7 @@ function readJPEGFile(evt) {
 				document.getElementById("error").innerHTML = 'Image file size should be less than 1000 x 1000';
 				return;
 			} else {
-			    if (bin.length > 1000000) {
+			    if (bin.length > 10000000) {
     				document.getElementById("error").innerHTML = 'Image file size limit 10mb';
     				return;
 			        
